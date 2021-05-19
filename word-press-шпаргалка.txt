@@ -1,0 +1,19 @@
+///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+Вывод ALT плагином ACF
+
+<?php
+$image_array = get_field('имя_поля_изображения');
+if ( $image_array ) { ?>
+    <img
+        src="<?php echo esc_url($image_array['url']); ?>"
+        alt="<?php echo esc_attr($image_array['alt']); ?>"
+    />
+<?php } ?>
+
+<?php echo esc_url($image_array['url']); ?> - вывод URL изображения (полный размер);
+<?php echo esc_url($image_array['sizes']['thumbnail']); ?> - вывод URL изображения (thumbnail, medium, large или кастомный);
+<?php echo esc_attr($image_array['alt']); ?> - вывод alt изображения;
+<?php echo esc_attr($image_array['title']); ?> - вывод заголовка изображения;
+<?php echo esc_html($image_array['caption']); ?> - вывод подписи изображения
